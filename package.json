@@ -10,11 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/thatsus/vue-csv-downloader.git"
   },
-  "contributors": {
-    "name": "Daniel Kuck-Alvarez",
-    "email": "dankuck@gmail.com",
-    "url": "http://dankuck.github.io/"
-  },
+  "contributors": [
+    {
+      "name": "Daniel Kuck-Alvarez",
+      "email": "dankuck@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/thatsus/vue-csv-downloader/issues"
