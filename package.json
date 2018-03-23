@@ -20,10 +20,12 @@
     "url": "https://github.com/thatsus/vue-csv-downloader/issues"
   },
   "homepage": "https://github.com/thatsus/vue-csv-downloader#readme",
+  "dependencies": {
+    "json2csv": "^3.0.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "jquery": "^3.2.1",
-    "json2csv": "^3.0.0",
     "karma": "^1.7.0",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.4",

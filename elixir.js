@@ -16,6 +16,9 @@ elixir.ready(function () {
         objectAssign: 'Object.assign'
       }
     },
+    externals: {
+      json2csv: 'json2csv'
+    },
     module: {
       loaders: [
         {
