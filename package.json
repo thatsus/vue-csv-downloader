@@ -2,7 +2,7 @@
   "name": "vue-csv-downloader",
   "version": "0.0.1",
   "description": "A Vue.js button component to download a CSV file of client-side data",
-  "main": "dist/index.js",
+  "main": "dist/CsvDownload.js",
   "scripts": {
     "test": "karma start karma.conf.js"
   },
