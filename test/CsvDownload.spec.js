@@ -135,3 +135,63 @@ describe('CsvDownload', function () {
             .then(done, done);
     });
 });
+
+describe('CsvDownload', function () {
+
+    let vm, theDownloader;
+
+    beforeEach('setup the Vue instance', function (done) {
+
+        vm = new Vue({
+            template: `
+                <csv-download 
+                    :fields="fields"
+                    :data="items"
+                    ref="theDownloader"
+                >
+                    <span v-if="useSlot">Ohai, Download</span>
+                </csv-download>
+            `,
+            components: {
+                CsvDownload
+            },
+            data() {
+                return {
+                    items: [
+                        {category: 'rabbit', count: 23},
+                        {category: 'chimp', count: 7},
+                    ],
+                    fields: [
+                        'category',
+                        'count',
+                    ],
+                    useSlot: true,
+                };
+            },
+        });
+
+        vm.$mount();
+
+        theDownloader = vm.$refs.theDownloader;
+
+        Vue.waitTicks(3).then(done);
+    });
+
+    it('should have loaded', function () {
+        assert(theDownloader, "theDownloader didn't load")
+    });
+
+    it('should have Ohai message', function () {
+        assert.equal(theDownloader.$el.innerText.trim(), 'Ohai, Download');
+    });
+
+    it('should go back to default message', function (done) {
+        vm.useSlot = false;
+        vm.$nextTick()
+            .then(() => {
+                assert.equal(theDownloader.$el.innerText.trim(), '');
+                assert.equal($(theDownloader.$el).find('i').length, 1);
+            })
+            .then(done, done);
+    });
+});
