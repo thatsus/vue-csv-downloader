@@ -38,7 +38,7 @@ export default {
 
 # Attributes
 
-`items` - Array of objects, Required. This is the data.
-`fields` - Array of strings, Required. These are the headers. They should match keys of the objects in items.
-`download-name` - String, Optional. The filename to download under.
+* `items` - Array of objects, Required. This is the data.
+* `fields` - Array of strings, Required. These are the headers. They should match keys of the objects in items.
+* `download-name` - String, Optional. The filename to download under.
 
