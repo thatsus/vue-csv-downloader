@@ -26,8 +26,8 @@ describe('CsvDownload', function () {
             data() {
                 return {
                     items: [
-                        {name: 'Dave', objectiveQuality: 'Medium'},
-                        {name: 'Dan', objectiveQuality: 'High'},
+                        {name: 'Dave', objectiveQuality: 'Medium', office: 304},
+                        {name: 'Dan', objectiveQuality: 'High', office: 189},
                     ],
                     fields: [
                         'name',
@@ -41,11 +41,33 @@ describe('CsvDownload', function () {
 
         theDownloader = vm.$refs.theDownloader;
 
-        Vue.waitTicks(3)
-            .then(done);
+        Vue.waitTicks(3).then(done);
     });
 
     it('should have loaded', function () {
         assert(theDownloader, "theDownloader didn't load")
+    });
+
+    it('should have generated a link', function () {
+        assert(theDownloader.$el.href, "data:text/csv,%22name%22%2C%22objectiveQuality%22%0A%22Dave%22%2C%22Medium%22%0A%22Dan%22%2C%22High%22");
+    });
+
+    it('should change when field list changes', function (done) {
+        vm.fields = ['name', 'office'];
+        vm.$nextTick()
+            .then(() => {
+                assert(theDownloader.$el.href, "data:text/csv,%22name%22%2C%office%22%0A%22Dave%22%2C%22304%22%0A%22Dan%22%2C%22189%22");
+            })
+            .then(done, done);
+    });
+
+    it('should change when data changes', function (done) {
+        vm.items[0].name = 'Randy';
+        vm.items[1].name = 'Daryl';
+        vm.$nextTick()
+            .then(() => {
+                assert(theDownloader.$el.href, "data:text/csv,%22name%22%2C%office%22%0A%22Randy%22%2C%22304%22%0A%22Daryl%22%2C%22189%22");
+            })
+            .then(done, done);
     });
 });
