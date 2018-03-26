@@ -52,3 +52,11 @@ export default {
 HTML content within the downloader element will be shown within the link instead of the default Font Awesome CSV icon.
 
 Styles and classes on the element will be used on the link.
+
+# Contribution
+
+If you find a bug or want to contribute to the code or documentation, you can help by submitting an [issue](https://github.com/thatsus/vue-csv-downloader/issues) or a [pull request](https://github.com/thatsus/vue-csv-downloader/pulls).
+
+# License
+
+[MIT](http://opensource.org/licenses/MIT)
