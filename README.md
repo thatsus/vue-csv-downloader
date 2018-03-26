@@ -1,5 +1,7 @@
 # vue-csv-downloader
-A Vue.js button component to download a CSV file of client-side data
+A Vue.js link component to download a CSV file of client-side data
+
+The contents are a Font Awesome CSV icon by default, but they can be replaced.
 
 # Install
 
@@ -22,12 +24,15 @@ Example:
 import VueCsvDownloader from 'vue-csv-downloader';
 
 export default {
+    components: {
+        VueCsvDownloader,
+    },
     data() {
         return {
             items: [
                 {id: 1, fruit: 'Apple', price: 4.50, unit: 'lb'},
                 {id: 2, fruit: 'Blueberry', price: 3.00, unit: 'lb'},
-                {id: 3, fruit: 'Pine apple', price: 5.15, unit: 'each'},
+                {id: 3, fruit: 'Pineapple', price: 5.15, unit: 'each'},
             ],
             fields: ['fruit', 'price', 'unit'],
         };
@@ -42,3 +47,8 @@ export default {
 * `fields` - Array of strings, Required. These are the headers. They should match keys of the objects in items.
 * `download-name` - String, Optional. The filename to download under.
 
+# Customization
+
+HTML content within the downloader element will be shown within the link instead of the default Font Awesome CSV icon.
+
+Styles and classes on the element will be used on the link.
