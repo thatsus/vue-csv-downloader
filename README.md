@@ -14,7 +14,7 @@ Example:
 ```
 <template>
     <vue-csv-downloader
-        :items="items"
+        :data="data"
         :fields="fields"
     >
     </vue-csv-downloader>
@@ -29,7 +29,7 @@ export default {
     },
     data() {
         return {
-            items: [
+            data: [
                 {id: 1, fruit: 'Apple', price: 4.50, unit: 'lb'},
                 {id: 2, fruit: 'Blueberry', price: 3.00, unit: 'lb'},
                 {id: 3, fruit: 'Pineapple', price: 5.15, unit: 'each'},
@@ -43,7 +43,7 @@ export default {
 
 # Attributes
 
-* `items` - Array of objects, Required. This is the data.
+* `data` - Array of objects, Required. This is the data.
 * `fields` - Array of strings, Required. These are the headers. They should match keys of the objects in items.
 * `download-name` - String, Optional. The filename to download under.
 
